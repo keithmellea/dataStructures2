@@ -59,10 +59,8 @@ class Stack {
   }
 
   size() {
+    return this.length;
 
-
-    
-    return this.store.length;
   }
 
   peek() {
