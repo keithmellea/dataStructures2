@@ -23,10 +23,37 @@
 
 class Node {
 
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
 }
 
 class Stack {
+  constructor() {
+    this.top = null;
+    this.length = 0;
+     
+  }
 
+  push(ele) {
+    const newNode = new Node(ele);
+    newNode.next = this.top;
+    this.top = newNode;
+    
+  }
+
+  pop() {
+    return this.store.pop();
+  }
+
+  size() {
+    return this.store.length;
+  }
+
+  peek() {
+    return this.store[this.store.length - 1];
+  }
 }
 
 exports.Node = Node;
