@@ -13,7 +13,7 @@
 // Constraints:
 // ------------
 //
-// Make sure the time and space complexity of each is equivalent to those 
+// Make sure the time and space complexity of each is equivalent to those
 // in the table provided in the Time and Space Complexity Analysis section
 // of your Stack reading!
 //
@@ -33,21 +33,35 @@ class Stack {
   constructor() {
     this.top = null;
     this.length = 0;
-     
+
   }
 
   push(ele) {
     const newNode = new Node(ele);
     newNode.next = this.top;
     this.top = newNode;
-    
+    this.length++
+    return this.length;
   }
 
   pop() {
-    return this.store.pop();
+    if(this.top === null){
+        return null;
+    }
+    const prevTop = this.top;
+    const newTop = this.top.next;
+    this.top = newTop;
+    this.length--;
+    if(prevTop.next === null) {
+        this.top = null;
+    }
+    return prevTop.value;
   }
 
   size() {
+
+
+    
     return this.store.length;
   }
 
@@ -55,6 +69,17 @@ class Stack {
     return this.store[this.store.length - 1];
   }
 }
+
+// let stack = new Stack();
+// stack.push('A');
+// stack.push('B');
+// stack.push('C');
+// stack.pop()
+// stack.pop()
+// stack.pop()
+// console.log(stack)
+
+
 
 exports.Node = Node;
 exports.Stack = Stack;
